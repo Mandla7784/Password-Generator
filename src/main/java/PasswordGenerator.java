@@ -19,60 +19,56 @@ import java.util.Scanner;
 import  java.util.Arrays;
 
 
-public  class PasswordGenerator  {
-  public static void main(String[] args) {
+public  class PasswordGenerator {
+    public static void main(String[] args) {
 
-      String[] passwords = {
-              "m#P52s@ap$V",
-              "$7H@n3#Waterfall",
-              "MountainBreeze99+Tree",
-              "cXmnZK65rf&DaaD",
-              "Yuc8$RikA34%ZoPPao98t",
-              "k8dfh8c@Pfv0gB2",
-              "e246gs%mFs#3tv6",
-              "Totb9484@",
-              "6MonkeysRLooking^",
-              "HorsePurpleHatRunBay",
-              "Horse Purple Hat Run Bay Lifting"
-      };
-
-
-      Scanner scanner = new Scanner(System.in);
-      System.out.println("Enter desired length:");
-
-      int desired_length = scanner.nextInt();
-      System.out.println("Should it include Special char ? <Y/N>");scanner.nextLine();
-
-      var  userResposne =  scanner.nextLine().toUpperCase();
-      scanner.nextLine();
+        String[] passwords = {
+                "m#P52s@ap$V",
+                "$7H@n3#Waterfall",
+                "MountainBreeze99+Tree",
+                "cXmnZK65rf&DaaD",
+                "Yuc8$RikA34%ZoPPao98t",
+                "k8dfh8c@Pfv0gB2",
+                "e246gs%mFs#3tv6",
+                "Totb9484@",
+                "6MonkeysRLooking^",
+                "HorsePurpleHatRunBay",
+                "Horse Purple Hat Run Bay Lifting"
+        };
 
 
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter desired length:");
 
-      if(userResposne.equals("Y")){
-          // return password with special charecters
-          String randomPassword = passwordWithSpecialCharecters(passwords);
-          System.out.println(randomPassword);
+        int desired_length = scanner.nextInt();
+        System.out.println("Should it include Special char ? <Y/N>");
+        scanner.nextLine();
 
-      }
+        var userResposne = scanner.nextLine().toUpperCase();
+        scanner.nextLine();
+
+        if (userResposne.equals("Y")) {
+            // return password with special charecters
+          passwordWithSpecialCharecters(passwords);
+        }
 
     }
-    static  String passwordWithSpecialCharecters(String[] passwords){
+
+   public  static void passwordWithSpecialCharecters(String[]  pwds) {
         boolean has_special = false;
         boolean has_numbers = false;
         boolean has_lower_case = false;
         boolean has_Upper = false;
 
-        String random =  "";
-
-        for(String  password : passwords ){
-            random += password;
 
 
-//            for( char charecter : password){
-//                System.out.println(charecter);
+        for(int i= 0 ; i < pwds.length ; i ++){
+            for( int j = 1 ; j < pwds[i].length() ; j ++){
 
-        }
+                System.out.println(pwds[j]);
+            }
 
-return random;
+     }
+
     }
 }
