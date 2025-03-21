@@ -41,8 +41,13 @@ public  class PasswordGenerator  {
       System.out.println("Enter desired length:");
 
       int desired_length = scanner.nextInt();
-      System.out.println("Should it include Special char?: <Y/N>");
-      String userResposne =  scanner.nextLine().toUpperCase().trim();
+      System.out.println("Should it include Special char ? <Y/N>");scanner.nextLine();
+
+      var  userResposne =  scanner.nextLine().toUpperCase();
+      scanner.nextLine();
+
+
+
       if(userResposne.equals("Y")){
           // return password with special charecters
           String randomPassword = passwordWithSpecialCharecters(passwords);
@@ -51,20 +56,23 @@ public  class PasswordGenerator  {
       }
 
     }
-    static  String passwordWithSpecialCharecters(List<String> passwords){
+    static  String passwordWithSpecialCharecters(String[] passwords){
         boolean has_special = false;
         boolean has_numbers = false;
         boolean has_lower_case = false;
         boolean has_Upper = false;
 
+        String random =  "";
 
         for(String  password : passwords ){
+            random += password;
 
-            for( char charecter : password){
-                System.out.println(charecter);
-            }
+
+//            for( char charecter : password){
+//                System.out.println(charecter);
+
         }
 
-
+return random;
     }
 }
