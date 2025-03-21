@@ -55,20 +55,16 @@ public  class PasswordGenerator {
     }
 
    public  static void passwordWithSpecialCharecters(String[]  pwds) {
-        boolean has_special = false;
-        boolean has_numbers = false;
-        boolean has_lower_case = false;
-        boolean has_Upper = false;
+       Random numer = new Random();
+
+       String pattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}";
+        for(String password :  pwds){
+            if(!password.matches(pattern)) throw new Exception("Password not valid")
+
+        }
 
 
 
-        for(int i= 0 ; i < pwds.length ; i ++){
-            for( int j = 1 ; j < pwds[i].length() ; j ++){
-
-                System.out.println(pwds[j]);
-            }
-
-     }
 
     }
 }
