@@ -18,7 +18,6 @@ import java.util.Random;
 import java.util.Scanner;
 import  java.util.Arrays;
 
-
 public  class PasswordGenerator {
     public static void main(String[] args) {
 
@@ -36,35 +35,47 @@ public  class PasswordGenerator {
                 "Horse Purple Hat Run Bay Lifting"
         };
 
+      while (true){
+          Scanner scanner = new Scanner(System.in);
+          System.out.println("Enter desired length:");
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter desired length:");
+          int desired_length = scanner.nextInt();
+          System.out.println("Should it include Special char ? <Y/N>");
+          scanner.nextLine();
 
-        int desired_length = scanner.nextInt();
-        System.out.println("Should it include Special char ? <Y/N>");
-        scanner.nextLine();
+          var userResposne = scanner.nextLine().toUpperCase();
+          scanner.nextLine();
 
-        var userResposne = scanner.nextLine().toUpperCase();
-        scanner.nextLine();
-
-        if (userResposne.equals("Y")) {
-            // return password with special charecters
-          passwordWithSpecialCharecters(passwords);
-        }
-
+          if (userResposne.equals("Y")) {
+              // return password with special charecters
+              String randomPassword = passwordWithSpecialCharecters(passwords , desired_length);
+              System.out.println(randomPassword);
+              continue;
+          }else{
+              System.out.println("Poor password strength!!");
+              break;
+          }
+      }
     }
 
-   public  static void passwordWithSpecialCharecters(String[]  pwds) {
-       Random numer = new Random();
+   public  static String passwordWithSpecialCharecters(String[]  pwds , int len) {
+       Random number = new Random();
+       int  randomPassword= new Random().nextInt(pwds.length);
+
 
        String pattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}";
         for(String password :  pwds){
-            if(!password.matches(pattern)) throw new Exception("Password not valid")
+            if(pwds[randomPassword].matches(pattern)  && pwds[randomPassword].length()  >= len ){
+                System.out.println("This is a good password");
+
+                return  pwds[randomPassword];
+            }else {
+
+                System.out.println("Invalid password");
+            }
 
         }
-
-
-
+     return pwds[randomPassword];
 
     }
 }
